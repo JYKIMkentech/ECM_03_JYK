@@ -35,7 +35,7 @@ Config.path_RRmodel = [Config.folder_model filesep 'BSL_DataBank.mat'];
 Config.path_ocv_chg = [Config.folder_model filesep 'FCC.mat'];
 Config.path_ocv_dch = [Config.folder_model filesep 'example1_OCV_dis.mat'];
 Config.path_ocv = Config.path_ocv_chg;  % temporally use the charging ocv for all purposes
-%Config.path_aging = [Config.folder_model filesep 'example_1_aging_parameters.mat'];
+Config.path_aging = [Config.folder_model filesep 'example_1_aging_parameters.mat'];
 
 
 %% Load RR model
@@ -81,9 +81,9 @@ Config.OCV = OCV;
 
 
 %% Load Aging Parameters
-%aging_para = load(Config.path_aging); % field name: 'opt_para'
-%Config.aging_para = aging_para.opt_para;
-%clear aging_para
+aging_para = load(Config.path_aging); % field name: 'opt_para'
+Config.aging_para = aging_para.opt_para;
+clear aging_para
 
 Config.V_th = 4.3;
 
