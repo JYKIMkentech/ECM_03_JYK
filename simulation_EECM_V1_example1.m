@@ -50,7 +50,7 @@ for k_cycle = Config.cycle_initial:Config.cycle_last
     IntVar = EECM_func_RR_cycle(Config,IntVar); % calculate internal variables of k-th cycle
     
     % run aging model (In progress)
-    IntVar = EECM_func_update_aging(Config,IntVar); % **in progress
+    %IntVar = EECM_func_update_aging(Config,IntVar); % **in progress
     IntVar.cap_fade(IntVar.k_cycle_now-Config.cycle_initial+1,:) = [IntVar.k_cycle_now, IntVar.cap_fade_now];
     
     % Plot by cycle
