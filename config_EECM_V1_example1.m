@@ -13,8 +13,8 @@ Config.cycle_initial = 1;
 Config.SOC0 = 0;
 
 % configs for the cell id
-Config.Vmax = 4.45; % [V]
-Config.Vmin = 3.0; % [V] 
+Config.Vmax = 4.2; % [V]
+Config.Vmin = 2.5; % [V] 
 
 % configs for simulation
 Config.dt = 30; % [sec] time step for simulation
@@ -32,7 +32,7 @@ Config.folder_engine = [pwd filesep 'engine'];
 
 % file fullpaths
 Config.path_RRmodel = [Config.folder_model filesep 'BSL_DataBank.mat'];
-Config.path_ocv_chg = [Config.folder_model filesep 'FCC.mat'];
+Config.path_ocv_chg = [Config.folder_model filesep 'OCV_FCC.mat'];
 Config.path_ocv_dch = [Config.folder_model filesep 'example1_OCV_dis.mat'];
 Config.path_ocv = Config.path_ocv_chg;  % temporally use the charging ocv for all purposes
 Config.path_aging = [Config.folder_model filesep 'example_1_aging_parameters.mat'];
