@@ -78,7 +78,7 @@ for k_cycle = Config.cycle_initial:Config.cycle_last
         plot(IntVar.t_all/3600,IntVar.Vref_all,'linewidth',2)
         hold on
         xlabel('Time (hr)')
-        ylabel('T (C)')
+        ylabel('Vref (V)')
         set(gca,'FontSize',14)
         
         subplot(224)

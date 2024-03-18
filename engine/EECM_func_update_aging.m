@@ -53,7 +53,7 @@ IntVar.dWRa_now_in_percent = IntVar.dWRa_now_in_percent+WRa_growth_rate_this_cyl
 % temporally skipped
 
 %%
-IntVar.t_clock = IntVar.t_clock + t_Vref(end) - t_Vref(1);
+%IntVar.t_clock = IntVar.t_clock + t_Vref(end) - t_Vref(1);
 
 IntVar.VV = VV;
 end
