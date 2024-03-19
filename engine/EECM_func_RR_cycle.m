@@ -1,4 +1,4 @@
-function [IntVar] = EECM_func_RR_cycle(Config, IntVar)
+function [IntVar,Sol] = EECM_func_RR_cycle(Config, IntVar)
 %% Inilization (Every cycle)
 IntVar.dt = Config.dt; % **NA define in sim config
 IntVar.T_cyclelife_amb = Config.T_cyclelife_amb;
@@ -46,6 +46,8 @@ while i_step < 98*3600/Config.dt && charge_flag==1
     Sol(i_step, 10) = IntVar.T_tier;
     Sol(i_step, 11) = isCC;
     Sol(i_step, 12) = isATC;
+    Sol(i_step, 13) = OCV_now;
+
     
     %%% States update
     T_input = Config.T_charging;
@@ -130,6 +132,8 @@ while time < time_discharge + EOR_time && V_now > Config.Vmin
     Sol(i_step, 7) = SOC_now;
     Sol(i_step, 8) = SOC_now;
     Sol(i_step, 9) = Vcath_now;
+    Sol(i_step, 13) = OCV_now;
+
     T_input = Config.T_discharge;
 
     [time, SOC_now, ~, T_now, OCV_now, ~, IntVar] = states_update(time, SOC_now, [], T_now, OCV_now, I_now, V_now, Config, IntVar, T_input, thermal_dyanmics_flag);   
@@ -161,6 +165,7 @@ while time < time_rest + EOD_time
     Sol(i_step, 7) = SOC_now;
     Sol(i_step, 8) = SOC_now;
     Sol(i_step, 9) = Vcath_now;
+    Sol(i_step, 13) = OCV_now;
     
     T_input = Config.T_rest_after_D;
     [time, SOC_now, ~, T_now, OCV_now, ~, IntVar] = states_update(time, SOC_now, [], T_now, OCV_now, I_now, V_now, Config, IntVar, T_input, thermal_dyanmics_flag);   

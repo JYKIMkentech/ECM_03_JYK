@@ -29,7 +29,7 @@ thermal_dyanmics_flag = Config.thermal_dyanmics_flag;
 while i_step < 98*3600/Config.dt && charge_flag==1
     
     %%% Get MSC at temp
-    [IntVar] = EECM_func_MSC_at_T(T_now, IntVar, Config); 
+    [IntVar] = EECM_func_MSC_at_T(T_now, IntVar, Config); % 2번째 저장 intvar2, config2
     
     %%% MSC simluation   
     [I_now, V_now, Vref_now, Vcath_now, charge_flag, isCC, isATC] = EECM_func_MSC_step(T_now, V_now, SOC_now, OCV_now, [], IntVar, Config);
@@ -48,7 +48,9 @@ while i_step < 98*3600/Config.dt && charge_flag==1
     Sol(i_step, 10) = IntVar.T_tier;
     Sol(i_step, 11) = isCC;
     Sol(i_step, 12) = isATC;
-    
+    Sol(i_step, 13) = OCV_now;
+
+
     %%% States update
     T_input = Config.T_charging;
     [time, SOC_now, ~, T_now, OCV_now, ~, IntVar] = states_update(time, SOC_now, [], T_now, OCV_now, I_now, V_now, Config, IntVar, T_input, thermal_dyanmics_flag);   
