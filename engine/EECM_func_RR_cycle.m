@@ -17,6 +17,8 @@ i_step = 1;
 charge_flag = 1; % start by charging
 
 
+
+
 indx_top = i_step;
 
 %% Simulation
