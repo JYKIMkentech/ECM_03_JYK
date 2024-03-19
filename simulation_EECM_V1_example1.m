@@ -47,7 +47,7 @@ for k_cycle = Config.cycle_initial:Config.cycle_last
     IntVar.k_cycle_now = k_cycle;
 
     % run RR model
-    IntVar = EECM_func_RR_cycle(Config,IntVar); % calculate internal variables of k-th cycle
+    [IntVar,Sol] = EECM_func_RR_cycle(Config,IntVar); % calculate internal variables of k-th cycle
     
     % run aging model (In progress)
     IntVar = EECM_func_update_aging(Config,IntVar); % **in progress
