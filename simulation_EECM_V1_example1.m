@@ -16,8 +16,8 @@ clear; clc; close all
 cell_id_string = 'example1'; % used for display and labeling
 
 % environment
-T_amb = 25; % ambient temperature
-N_cycle = 5; % number of cycles to simulate
+T_amb = 0; % ambient temperature
+N_cycle = 10; % number of cycles to simulate
 
 % cycling
 cycling = 'FCPD';
